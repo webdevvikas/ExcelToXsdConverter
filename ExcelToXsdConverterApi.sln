@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelToXsdConverterApi", "ExcelToXsdConverterApi\ExcelToXsdConverterApi.csproj", "{CC889BE7-5E6F-43F6-A548-4A3B6EE880CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC889BE7-5E6F-43F6-A548-4A3B6EE880CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC889BE7-5E6F-43F6-A548-4A3B6EE880CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC889BE7-5E6F-43F6-A548-4A3B6EE880CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC889BE7-5E6F-43F6-A548-4A3B6EE880CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {505ECE0C-72FF-4D21-8744-5171AAC9FB62}
+	EndGlobalSection
+EndGlobal

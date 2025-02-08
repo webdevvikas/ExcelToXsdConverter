@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel to XSD Converter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body style="background-color: #6f0934; color: white;">
+    <div class="container mt-5">
+        <h2 class="text-center">Excel to XSD Converter</h2>
+        <div class="card p-4 shadow-sm">
+            <div class="mb-3">
+                <label for="fileInput" class="form-label">Upload Excel File:</label>
+                <input type="file" id="fileInput" class="form-control" accept=".xlsx, .xls">
+            </div>
+            <button class="btn btn-primary w-100" onclick="uploadFile()">Convert to XSD</button>
+        </div>
+        <div class="mt-4">
+            <h5>Response (XSD Format):</h5>
+            <textarea id="responseArea" class="form-control" rows="12" readonly></textarea>
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-warning text-center w-10" onclick="refreshPage()">Refresh</button>
+        </div>
+    </div>
+
+    <script>
+        async function uploadFile() {
+            const fileInput = document.getElementById("fileInput");
+            const responseArea = document.getElementById("responseArea");
+
+            if (!fileInput.files.length) {
+                alert("Please select an Excel file.");
+                return;
+            }
+
+            let formData = new FormData();
+            formData.append("excelFile", fileInput.files[0]);
+
+            try {
+                const response = await fetch("https://localhost:7119/GetDataFromExcel", {
+                    method: "POST",
+                    body: formData
+                });
+
+                if (!response.ok) throw new Error("Failed to convert file.");
+
+                const xsdText = await response.text();
+                responseArea.value = xsdText;
+            } catch (error) {
+                responseArea.value = "Error: " + error.message;
+            }
+        }
+        async function refreshPage() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>
